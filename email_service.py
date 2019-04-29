@@ -1,4 +1,12 @@
 #acknowledgement - https://medium.freecodecamp.org/send-emails-using-code-4fcea9df63f
+from config import email_username, email_password
+import smtplib
+from string import Template
+from email.mime.multipart import MIMEMultipart
+from email.mime.text import MIMEText
+from string import Template
+
+
 def get_contacts(filename):
     names = []
     emails = []
@@ -8,19 +16,10 @@ def get_contacts(filename):
             emails.append(a_contact.split()[1])
     return names, emails
 
-from string import Template
-
 def read_template(filename):
     with open(filename, 'r', encoding='utf-8') as template_file:
         template_file_content = template_file.read()
     return Template(template_file_content)
-
-import smtplib
-
-from string import Template
-
-from email.mime.multipart import MIMEMultipart
-from email.mime.text import MIMEText
 
 def email_service():
     names, emails = get_contacts('contacts.txt') # read contacts
@@ -28,7 +27,7 @@ def email_service():
 
     s = smtplib.SMTP(host='smtp.gmail.com', port=587)
     s.starttls()
-    s.login('automatedbabycare@gmail.com','')
+    s.login(email_username,email_password)
 
     # For each contact, send the email:
     for name, email in zip(names, emails):
@@ -41,7 +40,7 @@ def email_service():
         print(message)
 
         # setup the parameters of the message
-        msg['From']='automatedbabycare@gmail.com'
+        msg['From']=email_username
         msg['To']=email
         msg['Subject']="Your baby is crying"
 
