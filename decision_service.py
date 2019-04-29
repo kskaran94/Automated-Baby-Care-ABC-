@@ -1,4 +1,5 @@
 from music_service import play_music, stop_music
+from email_service import email_service
 import cv2
 import json
 import pygame
@@ -16,7 +17,7 @@ def decision_service(payload, already_crying):
 			#play music
 			#send notification
 			play_music()
-			#email_service()
+			email_service()
 			already_crying = 1
 
 	else:
