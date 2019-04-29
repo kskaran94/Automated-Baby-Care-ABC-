@@ -28,7 +28,7 @@ def email_service():
 
     s = smtplib.SMTP(host='smtp.gmail.com', port=587)
     s.starttls()
-    s.login('automatedbabycare@gmail.com','babycrying')
+    s.login('automatedbabycare@gmail.com','')
 
     # For each contact, send the email:
     for name, email in zip(names, emails):
