@@ -1,7 +1,7 @@
 import json
 import requests
-from music_service import play_music, stop_music
-from email_service import email_service
+from music_service.service import play_music, stop_music
+from email_service.service import email_service
 from config import subscription_key, face_api_url
 
 ## image_process processes an image and detect the emotion of the child based on
