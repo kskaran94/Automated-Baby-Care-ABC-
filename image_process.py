@@ -34,14 +34,16 @@ def image_process(frame_list, cry_status):
             if not cry_status:
                 #play music
                 #send notification
-                play_music()
+                music_process = play_music()
                 email_service()
                 cry_status = 1
 
         else:
             if cry_status:
                 #stop music
-                stop_music()
+                stop_music(music_process)
                 cry_status = 0
 
         yield cry_status
+        
+    music_process.terminate()
