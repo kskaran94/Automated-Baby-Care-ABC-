@@ -10,7 +10,7 @@ from config import subscription_key, face_api_url
 
 def image_process(frame_list, cry_status):
 
-    for i in range(0, len(frame_list), 100):
+    for i in range(0, len(frame_list), 300):
         path_to_file = frame_list[i]
         with open(path_to_file, 'rb') as f:
             data = f.read()
