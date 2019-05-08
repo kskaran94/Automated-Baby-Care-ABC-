@@ -1,14 +1,9 @@
-from playsound import playsound
-from multiprocessing import Process
-import threading
+import subprocess
+
 
 def start_music():
-	p = Process(target=play_music)
-	p.start()
+	p = subprocess.Popen(['afplay', './music_service/music.mp3'])
 	return p
-
-def play_music():
-	playsound('music.mp3')
 
 def stop_music(p):
 	p.terminate()
