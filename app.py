@@ -1,6 +1,6 @@
 from image_process import image_process
 from video_util import video_to_frames
-from push_todb import push
+from database.service import push
 
 def initialize():
 	cry_status = 0
