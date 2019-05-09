@@ -1,5 +1,5 @@
 from image_process import image_process
-from video_util import video_to_frames
+from video.util import video_to_frames
 from database.service import push
 
 def initialize():
