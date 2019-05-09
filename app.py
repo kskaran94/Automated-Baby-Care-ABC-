@@ -24,4 +24,4 @@ def main():
 			push([1,count,'not_crying'])
 
 
-main()
+#main()
