@@ -8,10 +8,10 @@ def initialize():
 	return cry_status
 
 
-def main():
+def main(video_url):
 	count = 0
 	cry_status = initialize()
-	video_url = 'video0.mp4'
+	#video_url = 'video0.mp4'
 	frame_list = video_to_frames(video_url)
 
 	#video to frames

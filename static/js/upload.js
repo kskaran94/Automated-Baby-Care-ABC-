@@ -9,8 +9,7 @@ $(document).ready( function() {
 		            img_file = e.target.result.split(",")[1]
 		            file_name = input.files[0].name;
 		            $('#vid-name').text(file_name);
-		        }
-		        
+		        } 
 		        reader.readAsDataURL(input.files[0]);
 		    }
 		}
@@ -20,10 +19,11 @@ $(document).ready( function() {
 		});
 
 		$("#upload").click(function () {
-			alert("clicked")
+			file_name = $("#vid-name").text()
+			alert(file_name)
         $.ajax({
             type: 'GET',
-            url: "/processVideo/",
+            url: "/processVideo?filename="+file_name,
             success: function (data) {
                 alert(data)
             }
