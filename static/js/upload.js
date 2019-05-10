@@ -20,7 +20,6 @@ $(document).ready( function() {
 
 		$("#upload").click(function () {
 			file_name = $("#vid-name").text()
-			alert(file_name)
         $.ajax({
             type: 'GET',
             url: "/processVideo?filename="+file_name,
