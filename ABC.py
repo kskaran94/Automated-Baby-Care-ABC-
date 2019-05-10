@@ -10,15 +10,9 @@ class MainHandler(tornado.web.RequestHandler):
     def get(self):
         self.render("index.html")
 
-class ActionHandler(tornado.web.RequestHandler):
-    def get(self):
-        x = self.get_argument('filename')
-        self.write(json.dumps({'status': 'ok', 'sent': x}))
-
 class VideoHandler(tornado.web.RequestHandler):
     def get(self):
         file1 = self.get_argument('filename')
-        file1 = "Vid_libary/"+file1
         main(file1)
         self.write("Done")
 
