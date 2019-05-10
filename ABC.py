@@ -3,15 +3,18 @@ import tornado.web
 import logging
 import Settings
 import json
+from app import main
 
 
 class MainHandler(tornado.web.RequestHandler):
     def get(self):
         self.render("index.html")
 
-class ActionHandler(tornado.web.RequestHandler):
+class VideoHandler(tornado.web.RequestHandler):
     def get(self):
-        self.write(json.dumps({'status': 'ok', 'sent': 200}))
+        file1 = self.get_argument('filename')
+        main(file1)
+        self.write("Done")
 
 class Application(tornado.web.Application):
     def __init__(self):
@@ -23,7 +26,7 @@ class Application(tornado.web.Application):
 
         app_handlers = [
             (r'^/', MainHandler),
-            (r'^/processVideo/', ActionHandler)
+            (r'^/processVideo$', VideoHandler)
         ]
 
         super(Application, self).__init__(app_handlers, **app_settings)

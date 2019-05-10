@@ -10,6 +10,7 @@ import time
 
 def image_process(frame_list, cry_status):
 
+    music_process = ""
     for i in range(0, len(frame_list), 100):
         path_to_file = frame_list[i]
         with open(path_to_file, 'rb') as f:
@@ -40,4 +41,10 @@ def image_process(frame_list, cry_status):
                 stop_music(music_process)
                 cry_status = 0
         yield cry_status
-    music_process.terminate()
+
+    if music_process != "" :
+        poll = music_process.poll()
+        print(poll)
+        if poll == None:
+            music_process.terminate()
+
