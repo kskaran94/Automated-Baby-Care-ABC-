@@ -1,4 +1,5 @@
 tornado>=5.0.1
 requests
 opencv-python
-pychopg2
+sqlalchemy
+psycopg2
