@@ -2,4 +2,4 @@ tornado>=5.0.1
 requests
 opencv-python
 sqlalchemy
-psycopg2
+
