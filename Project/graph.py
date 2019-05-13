@@ -7,17 +7,20 @@ import datetime
 from datetime import timedelta
 import numpy as np
 
+
 def plotData() :
 
         external_stylesheets = ['https://codepen.io/chriddyp/pen/bWLwgP.css']
 
         app = dash.Dash(__name__, external_stylesheets=external_stylesheets)
 
+        
+
         x = np.arange(0,100,1)
         time = datetime.datetime.now()
         t =[]
         for i in range(len(x)) :
-        t.append(time + timedelta(seconds = x[i]))
+            t.append(time + timedelta(seconds = x[i]))
         y = ['Not Crying' for i in range(20)]
         y = y + ['Crying' for i in range(60)]
         y = y + ['Not Crying' for i in range(10)]
@@ -79,5 +82,6 @@ def plotData() :
 
         ])
 
-if __name__ == '__main__':
-    app.run_server(port=8050,debug=True)
+        app.run_server(port=8050,debug=True)
+
+plotData()        
