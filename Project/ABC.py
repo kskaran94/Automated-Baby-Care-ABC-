@@ -4,6 +4,7 @@ import logging
 import Settings
 import json
 from app import main
+from graph import plotData
 
 
 class MainHandler(tornado.web.RequestHandler):
@@ -16,6 +17,10 @@ class VideoHandler(tornado.web.RequestHandler):
         main(file1)
         self.write("Done")
 
+class Dashboard(tornado.web.RequestHandler):
+    def get(self):
+        plotData()
+
 class Application(tornado.web.Application):
     def __init__(self):
         app_settings = {
@@ -26,7 +31,8 @@ class Application(tornado.web.Application):
 
         app_handlers = [
             (r'^/', MainHandler),
-            (r'^/processVideo$', VideoHandler)
+            (r'^/processVideo$', VideoHandler),
+            (r'^/data', Dashboard)
         ]
 
         super(Application, self).__init__(app_handlers, **app_settings)
